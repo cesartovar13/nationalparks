@@ -7,8 +7,8 @@ env:
   APP_NAME: nationalparks22
   IMAGE_TAGS: latest ${{ github.sha }}
 
-  OPENSHIFT_SERVER: ${{ secrets.OPENSHIFTSERVER }}
-  OPENSHIFT_TOKEN: ${{ secrets.OPENSHIFTTOKEN }}
+  OPENSHIFTSERVER: ${{ secrets.OPENSHIFTSERVER }}
+  OPENSHIFTTOKEN: ${{ secrets.OPENSHIFTTOKEN }}
   OPENSHIFT_NAMESPACE: "https://github.com/openshift-roadshow/nationalparks.git"
 
   APP_PORT: "8080"
@@ -60,8 +60,8 @@ jobs:
     - name: Log in to OpenShift 
       uses: redhat-actions/oc-login@v1
       with:
-        openshift_server_url: ${{ env.OPENSHIFTSERVER }}
-        openshift_token: ${{ env.OPENSHIFTTOKEN }}
+        openshiftserver_url: ${{ env.OPENSHIFTSERVER }}
+        openshifttoken: ${{ env.OPENSHIFTTOKEN }}
         insecure_skip_tls_verify: true
         namespace: ${{ env.OPENSHIFT_NAMESPACE }}
 
